@@ -1,5 +1,10 @@
 wise:
+  api-key: test-api-token
   endpoints:
     exchange-rate-get:
       httpMethod: GET
-      url: ${wiremock.server.https-port}/v1/rates
+      url: http4://localhost:${wiremock.server.port}/v1/rates
+
+eureka:
+  client:
+    enabled: false

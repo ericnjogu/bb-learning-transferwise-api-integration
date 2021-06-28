@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
         <boat-maven-plugin.version>0.13.0</boat-maven-plugin.version>
         <lombok.version>1.18.12</lombok.version>
+        <camel.version>2.25.3</camel.version>
     </properties>
 
     <dependencies>
@@ -79,7 +80,22 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring-starter</artifactId>
-            <version>2.25.3</version>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-http4</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jackson</artifactId>
+            <version>${camel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-xstream</artifactId>
+            <version>${camel.version}</version>
         </dependency>
     </dependencies>
 
