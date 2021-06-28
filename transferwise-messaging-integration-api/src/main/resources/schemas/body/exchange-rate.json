@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "rate": {
+      "type": "string",
+      "format": "float"
+    },
+    "source": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "rate",
+    "source",
+    "target",
+    "time"
+  ]
+}

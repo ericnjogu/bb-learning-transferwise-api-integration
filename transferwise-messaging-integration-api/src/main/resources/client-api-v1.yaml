@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: exchange rate API
+  description: Specs for exchange rate
+  version: 1.0.0
+  x-icon: credit_card
+
+servers:
+  - description: local test
+    url: http://localhost:8080/api/v1
+
+tags:
+  - name: Retail
+
+paths:
+
+  /client-api/v1/exchange-rates:
+    description: get exchange rates
+
+    get:
+      summary: Returns available items, optionally filtered by name.
+      description: Returns available items, optionally filtered by name
+      operationId: get-exchange-rates
+      parameters:
+        - description: source currency
+          example: EUR
+          in: query
+          name: source
+          required: true
+          schema:
+            type: string
+            default: EUR
+        - description: target currency
+          example: USD
+          in: query
+          name: target
+          required: true
+          schema:
+            type: string
+            default: USD
+        - description: start date
+          example: 2020-01-31
+          in: query
+          name: from
+          required: false
+          schema:
+            type: string
+            format: date
+        - description: end date
+          example: 2020-02-30
+          in: query
+          name: to
+          required: false
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                $ref: examples/body/exchange-rate-get.json
+              schema:
+                $ref: '#/components/schemas/MessagesGetResponseBody'
+          description: No description available
+        '400':
+          $ref: 'lib/common-types.yaml#/components/responses/400BadRequest'
+        '500':
+          $ref: 'lib/common-types.yaml#/components/responses/500InternalServerError'
+      tags:
+        - exchange rate
+
+components:
+  schemas:
+    ErrorItem:
+      $ref: 'lib/schemas/error-item.yaml'
+    Message:
+      $ref: schemas/body/exchange-rate.json
+    MessagesGetResponseBody:
+      $ref: schemas/body/exchange-rate-get.json
+    NotAcceptableError:
+      properties:
+        message:
+          type: string
+        supportedMediaTypes:
+          description: List of supported media types for this endpoint
+          items:
+            type: string
+          type: array
+      type: object
+    UnauthorizedError:
+      properties:
+        message:
+          type: string
+      required:
+        - message
+      type: object
