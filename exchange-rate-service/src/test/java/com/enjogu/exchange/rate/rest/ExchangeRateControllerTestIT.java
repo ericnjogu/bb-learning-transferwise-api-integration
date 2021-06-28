@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -17,10 +18,9 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @IntegrationTest
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor_ = @Autowired)
 class ExchangeRateControllerTestIT {
-
-  final MockMvc mvc;
+  private final MockMvc mvc;
 
   @BeforeEach
   void setUp() {
@@ -40,6 +40,7 @@ class ExchangeRateControllerTestIT {
         .withQueryParam("to", equalTo(String.format("%sT23:59:59", to)))
         .withQueryParam("source", equalTo(source))
         .withQueryParam("target", equalTo(target))
+        .withHeader("Authorization", equalTo(String.format("Bearer %s", "test-token")))
         .willReturn(status(HttpStatus.OK.value()).withBody(content))
     );
 

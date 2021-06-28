@@ -1,0 +1,5 @@
+wise:
+  endpoints:
+    exchange-rate-get:
+      httpMethod: GET
+      url: ${wiremock.server.https-port}/v1/rates

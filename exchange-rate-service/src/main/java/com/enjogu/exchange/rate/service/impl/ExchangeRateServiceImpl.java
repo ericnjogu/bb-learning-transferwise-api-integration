@@ -2,21 +2,27 @@ package com.enjogu.exchange.rate.service.impl;
 
 import com.enjogu.exchange.rate.api.service.v2.model.ExchangeRate;
 import com.enjogu.exchange.rate.dto.EchangeRateRequestDto;
+import com.enjogu.exchange.rate.route.ExchangeRateProxy;
 import com.enjogu.exchange.rate.service.ExchangeRateService;
+import lombok.RequiredArgsConstructor;
+import org.apache.camel.Produce;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 @Service
+@RequiredArgsConstructor
 public class ExchangeRateServiceImpl implements ExchangeRateService {
+
+  @Produce(uri = ExchangeRateProxy.ROUTE)
+  private ExchangeRateProxy exchangeRateProxy;
   @Override
   public List<ExchangeRate> getExchangeRate(EchangeRateRequestDto dto) {
-    return Collections.emptyList();
+    return exchangeRateProxy.getExchangeRate(dto);
   }
 
   @Override
