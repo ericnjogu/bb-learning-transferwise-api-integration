@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 @Getter
 @Builder
-public class EchangeRateRequestDto {
+public class ExchangeRateRequestDto {
   private LocalDateTime from;
   private LocalDateTime to;
   private String source;

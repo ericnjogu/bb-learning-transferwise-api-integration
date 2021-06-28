@@ -1,14 +1,14 @@
 package com.enjogu.exchange.rate.service;
 
 import com.enjogu.exchange.rate.api.service.v2.model.ExchangeRate;
-import com.enjogu.exchange.rate.dto.EchangeRateRequestDto;
+import com.enjogu.exchange.rate.dto.ExchangeRateRequestDto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ExchangeRateService {
-  List<ExchangeRate> getExchangeRate(EchangeRateRequestDto dto);
+  List<ExchangeRate> getExchangeRate(ExchangeRateRequestDto dto);
 
   /**
    * add time to 'end' date

@@ -1,7 +1,7 @@
 package com.enjogu.exchange.rate.service.impl;
 
 import com.enjogu.exchange.rate.api.service.v2.model.ExchangeRate;
-import com.enjogu.exchange.rate.dto.EchangeRateRequestDto;
+import com.enjogu.exchange.rate.dto.ExchangeRateRequestDto;
 import com.enjogu.exchange.rate.route.ExchangeRateProxy;
 import com.enjogu.exchange.rate.service.ExchangeRateService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
   @Produce(uri = ExchangeRateProxy.ROUTE)
   private ExchangeRateProxy exchangeRateProxy;
   @Override
-  public List<ExchangeRate> getExchangeRate(EchangeRateRequestDto dto) {
+  public List<ExchangeRate> getExchangeRate(ExchangeRateRequestDto dto) {
     return exchangeRateProxy.getExchangeRate(dto);
   }
 

@@ -2,7 +2,7 @@ package com.enjogu.exchange.rate.rest;
 
 import com.enjogu.exchange.rate.api.service.v2.ExchangeRateApi;
 import com.enjogu.exchange.rate.api.service.v2.model.ExchangeRate;
-import com.enjogu.exchange.rate.dto.EchangeRateRequestDto;
+import com.enjogu.exchange.rate.dto.ExchangeRateRequestDto;
 import com.enjogu.exchange.rate.service.ExchangeRateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class ExchangeRateController implements ExchangeRateApi {
   public ResponseEntity<List<ExchangeRate>> getExchangeRates(String source, String target, LocalDate from,
       LocalDate to) {
     //@formatter:off
-    EchangeRateRequestDto request = EchangeRateRequestDto
+    ExchangeRateRequestDto request = ExchangeRateRequestDto
         .builder()
         .source(source)
         .target(target)
