@@ -1,9 +1,10 @@
 wise:
   api-key: test-api-token
+  base-url: http4://localhost:${wiremock.server.port}
   endpoints:
     exchange-rate-get:
       httpMethod: GET
-      url: http4://localhost:${wiremock.server.port}/v1/rates
+      url: ${wise.base-url}/v1/rates
 
 eureka:
   client:
