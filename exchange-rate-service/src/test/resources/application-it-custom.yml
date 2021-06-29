@@ -1,6 +1,6 @@
 wise:
   api-key: test-api-token
-  base-url: http4://localhost:${wiremock.server.port}
+  base-url: https4://localhost:${wiremock.server.https-port}
   endpoints:
     exchange-rate-get:
       httpMethod: GET
