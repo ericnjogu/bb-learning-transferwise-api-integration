@@ -21,7 +21,7 @@
     <name>Backbase :: exchange-rate-service</name>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
         <boat-maven-plugin.version>0.13.0</boat-maven-plugin.version>
         <lombok.version>1.18.12</lombok.version>
         <camel.version>2.25.3</camel.version>
@@ -38,30 +38,6 @@
             <artifactId>transferwise-messaging-integration-api</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- open api generation -->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>1.6.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openapitools</groupId>
-            <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-core</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-contract-wiremock</artifactId>
@@ -97,58 +73,15 @@
             <artifactId>camel-xstream</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>${maven-dependency-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>com.enjogu.bb.learning</groupId>
-                                    <artifactId>transferwise-messaging-integration-api</artifactId>
-                                    <version>${project.version}</version>
-                                    <classifier>api</classifier>
-                                    <outputDirectory>${project.build.directory}/yaml</outputDirectory>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                </artifactItem>
-                            </artifactItems>
-                            <includes>**/*.yaml, **/*.json</includes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.backbase.oss</groupId>
-                <artifactId>boat-maven-plugin</artifactId>
-                <version>${boat-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>generate-client-api-code</id>
-                        <goals>
-                            <goal>generate-spring-boot-embedded</goal>
-                        </goals>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <inputSpec>${project.build.directory}/yaml/transferwise-messaging-integration-api/client-api-v1.0.0.yaml</inputSpec>
-                            <apiPackage>com.enjogu.exchange.rate.api.service.v2</apiPackage>
-                            <modelPackage>com.enjogu.exchange.rate.api.service.v2.model</modelPackage>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
         <resources>
             <resource>
                 <directory>${project.build.directory}/target/generated-sources</directory>
