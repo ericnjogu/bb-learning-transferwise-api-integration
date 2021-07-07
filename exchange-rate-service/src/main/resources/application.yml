@@ -25,3 +25,9 @@ management:
   health:
     jms:
      enabled: false
+
+wise:
+  endpoints:
+    exchange-rate-get:
+      httpMethod: GET
+      url: ${wise.base-url}/v1/rates
