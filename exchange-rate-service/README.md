@@ -18,9 +18,7 @@ Service configuration is under `src/main/resources/application.yml`.
 To run the service in development mode, use:
 ```shell
 mvn spring-boot:run \
--Drun.jvmArguments="-Dwise.api-key=df098f9f-eb3c-4111-bfe4-4a38acc5e2cb -Dwise.base-url=https://api.sandbox.transferwise.tech"
-or
-java -jar target/exchange-rate-service-1.0.0-SNAPSHOT-exec.jar-classes.jar --wise.api-key=df098f9f-eb3c-4111-bfe4-4a38acc5e2cb --wise.base-url=https://api.sandbox.transferwise.tech
+-Dspring-boot.run.jvmArguments="-Dwise.api-key=df098f9f-eb3c-4111-bfe4-4a38acc5e2cb -Dwise.base-url=https://api.sandbox.transferwise.tech -DSIG_SECRET_KEY=JWTSecretKeyDontUseInProduction\!"
 ```
 
 To run the service from the built binaries, use:
