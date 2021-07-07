@@ -78,14 +78,5 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
     </dependencies>
-
-    <build>
-        <resources>
-            <resource>
-                <directory>${project.build.directory}/target/generated-sources</directory>
-            </resource>
-        </resources>
-    </build>
 </project>
