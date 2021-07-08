@@ -36,6 +36,7 @@
                 <artifactId>raml-api-maven-plugin-1-0</artifactId>
                 <!-- These options change the default configuration managed in backbase-spec-starter-parent-->
                 <configuration>
+                    <serviceId>fee-service</serviceId>
                     <inputFile>src/main/resources/service-api.raml</inputFile>
                     <outputFile>target/generated-sources</outputFile>
                     <packageName>${codegen.serviceName}</packageName>
