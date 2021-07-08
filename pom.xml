@@ -16,5 +16,6 @@
 		<module>transferwise-messaging-integration-api</module>
     	<module>exchange-rate-service</module>
     	<module>exchange-rate-fees-spec</module>
+    	<module>fee-service</module>
   </modules>
 </project>
