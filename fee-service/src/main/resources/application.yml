@@ -5,7 +5,7 @@ server:
 eureka:
   instance:
     metadata-map:
-      public: true
+      public: false
       role: live
   client:
     serviceUrl:
