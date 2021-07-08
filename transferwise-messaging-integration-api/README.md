@@ -1,6 +1,16 @@
 # transferwise-messaging-integration-api
 
-> _Fill out this file with some information about your OpenAPI spec._
+Created using
+```shell
+	mvn archetype:generate \
+  -DarchetypeArtifactId=openapi-specifications-archetype \
+  -DarchetypeGroupId=com.backbase.archetype \
+  -DarchetypeVersion=11.3.0 \
+  -DserviceName=ados-batch-order-payment-api \
+  -DservicePackageName=com.standardbank.ao.payment.batch.api \
+  -DgroupId=com.standardbank.ao.payments \
+  -DartifactId=ados-batch-order-payment-api
+```
 
 To build this spec, use:
 ```

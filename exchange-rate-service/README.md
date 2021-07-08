@@ -1,6 +1,17 @@
 # exchange-rate-service
 
-_Fill out this file with some information about your Service._
+Created using
+
+```shell
+mvn archetype:generate -B \
+  -DarchetypeArtifactId=core-service-archetype \
+  -DarchetypeGroupId=com.backbase.archetype \
+  -DarchetypeVersion=11.3.0 \
+  -DserviceName=exchange-rate-service \
+  -Dpackage=com.enjogu \
+  -DgroupId=com.enjogu.bb.learning \
+  -DartifactId=exchange-rate-service
+  ```
 
 #Getting Started
 * [Extend and build](https://community.backbase.com/documentation/ServiceSDK/latest/extend_and_build)
