@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.enjogu</groupId>
+    <groupId>com.enjogu.bb.learning</groupId>
     <artifactId>exchange-rate-fees-spec</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>Backbase :: Digital Banking Services ::  Exchange Rate Fees Spec</name>
@@ -38,7 +38,7 @@
                 <configuration>
                     <serviceId>fee-service</serviceId>
                     <inputFile>src/main/resources/service-api.raml</inputFile>
-                    <outputFile>target/generated-sources</outputFile>
+                    <outputFile>target/generated-sources/src/main/java</outputFile>
                     <packageName>${codegen.serviceName}</packageName>
                     <!-- For new projects we recommend enabling java.time.* classes for
                         datetime types with the following two configuration properties.
@@ -49,6 +49,24 @@
                     <generateClients>true</generateClients>
                     <basePackageName>com.enjogu</basePackageName>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
