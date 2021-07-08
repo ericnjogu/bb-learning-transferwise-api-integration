@@ -1,5 +1,5 @@
 server:
-  port: 9915
+  port: 9916
 
 # API Registry client configuration
 eureka:
