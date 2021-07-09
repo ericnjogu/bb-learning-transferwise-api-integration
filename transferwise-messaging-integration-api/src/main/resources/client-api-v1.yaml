@@ -16,7 +16,6 @@ paths:
 
   /client-api/v1/exchange-rates:
     description: get exchange rates
-
     get:
       summary: Returns available items, optionally filtered by name.
       description: Returns available items, optionally filtered by name
@@ -67,6 +66,23 @@ paths:
           $ref: 'lib/common-types.yaml#/components/responses/400BadRequest'
         '500':
           $ref: 'lib/common-types.yaml#/components/responses/500InternalServerError'
+      tags:
+        - exchange rate
+  /client-api/v1/exchange-rates/fees:
+    description: get fee
+    get:
+      summary: Returns available fee
+      description: Returns available fee
+      operationId: get-fee
+      responses:
+        '200':
+          content:
+            application/json:
+              example:
+                $ref: examples/body/example-fee.json
+              schema:
+                $ref: 'schemas/body/fee.json'
+          description: No description available
       tags:
         - exchange rate
 

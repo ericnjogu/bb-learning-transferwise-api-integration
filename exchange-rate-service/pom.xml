@@ -73,5 +73,10 @@
             <artifactId>camel-xstream</artifactId>
             <version>${camel.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.enjogu.bb.learning</groupId>
+            <artifactId>exchange-rate-fees-spec</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

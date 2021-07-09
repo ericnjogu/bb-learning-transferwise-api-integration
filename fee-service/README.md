@@ -26,7 +26,10 @@ Service configuration is under `src/main/resources/application.yml`.
 ## Running
 
 To run the service in development mode, use:
-- `mvn spring-boot:run`
+```shell
+mvn spring-boot:run \
+-Dspring-boot.run.jvmArguments="-DSIG_SECRET_KEY=JWTSecretKeyDontUseInProduction\!"
+```
 
 To run the service from the built binaries, use:
 - `java -jar target/fee-service-1.0.0-SNAPSHOT.jar`
