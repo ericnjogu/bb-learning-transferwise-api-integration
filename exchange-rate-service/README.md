@@ -37,11 +37,14 @@ To run the service from the built binaries, use:
 
 ## Authorization
 
-Requests to this service are authorized with a Backbase Internal JWT, therefore you must access this service via the 
-Backbase Gateway after authenticating with the authentication service.
+http://localhost:7777/api/auth/login
 
-For local development, an internal JWT can be created from http://jwt.io, entering `JWTSecretKeyDontUseInProduction!` 
-as the secret in the signature to generate a valid signed JWT.
+Login in with admin/admin
+
+## Functional Testing
+Perform the authorization then:
+
+http://localhost:7777/api/exchange-rate-service/client-api/v1/exchange-rates?source=EUR&target=USD&from=2019-03-31&to=2019-04-30
 
 ## Community Documentation
 

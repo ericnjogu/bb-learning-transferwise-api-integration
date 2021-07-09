@@ -36,11 +36,16 @@ To run the service from the built binaries, use:
 
 ## Authorization
 
-Requests to this service are authorized with a Backbase Internal JWT, therefore you must access this service via the 
-Backbase Gateway after authenticating with the authentication service.
+Not configured yet
 
-For local development, an internal JWT can be created from http://jwt.io, entering `JWTSecretKeyDontUseInProduction!` 
-as the secret in the signature to generate a valid signed JWT.
+## Functional Testing
+### Via exchange rates service
+- start exchange rate service (along with IPS, edge, activeMQ, mysql)
+- try http://localhost:7777/api/exchange-rate-service/client-api/v1/exchange-rates/fees
+
+### Standalone
+http://localhost:9916/service-api/v1/fees
+
 
 ## Community Documentation
 
