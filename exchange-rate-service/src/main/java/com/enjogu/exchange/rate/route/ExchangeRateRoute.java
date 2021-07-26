@@ -48,12 +48,12 @@ public class ExchangeRateRoute extends RouteBuilder {
   }
 
   void configureSsl() {
-    HttpComponent httpComponent = this.getContext().getComponent("https4", HttpComponent.class);
+    var httpComponent = this.getContext().getComponent("https4", HttpComponent.class);
     httpComponent.setX509HostnameVerifier(NoopHostnameVerifier.INSTANCE);
-    TrustManagersParameters trustManagersParameters = new TrustManagersParameters();
+    var trustManagersParameters = new TrustManagersParameters();
     X509ExtendedTrustManager extendedTrustManager = new NoopX509ExtendedTrustManager();
     trustManagersParameters.setTrustManager(extendedTrustManager);
-    SSLContextParameters sslContextParameters = new SSLContextParameters();
+    var sslContextParameters = new SSLContextParameters();
     sslContextParameters.setTrustManagers(trustManagersParameters);
     httpComponent.setSslContextParameters(sslContextParameters);
   }

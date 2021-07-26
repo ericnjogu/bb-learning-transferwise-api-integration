@@ -61,7 +61,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
       log.debug("api key from token is {}", userTokenClaim.get());
       return userTokenClaim.get();
     } else {
-      String msg = "could not retrieve api key from claims";
+      var msg = "could not retrieve api key from claims";
       log.error(msg);
       throw new BadRequestException(msg);
     }
