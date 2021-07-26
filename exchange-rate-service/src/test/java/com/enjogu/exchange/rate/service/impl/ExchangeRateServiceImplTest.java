@@ -1,7 +1,11 @@
 package com.enjogu.exchange.rate.service.impl;
 
+import com.backbase.buildingblocks.backend.security.auth.config.SecurityContextUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -9,13 +13,17 @@ import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class ExchangeRateServiceImplTest {
 
   private ExchangeRateServiceImpl exchangeRateService;
 
+  @Mock
+  private SecurityContextUtil securityContextUtil;
+
   @BeforeEach
   void setup() {
-    exchangeRateService = new ExchangeRateServiceImpl();
+    exchangeRateService = new ExchangeRateServiceImpl(securityContextUtil);
   }
 
   @Test
