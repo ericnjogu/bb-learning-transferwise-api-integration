@@ -38,10 +38,10 @@ public class ExchangeRateRoute extends RouteBuilder {
       .setHeader("Authorization", simple(String.format("Bearer ${%s}", "exchangeProperty.apiKey")))
       .marshal().json(JsonLibrary.Jackson)
       .to(logString)
-      .toD(String.format("%s?source=%s&target=%s&from=%s&to=%s",
-          exchangeRateProps.getUrl(), "${exchangeProperty.requestDto.source}",
-          "${exchangeProperty.requestDto.target}", "${exchangeProperty.requestDto.dateFrom}",
-          "${exchangeProperty.requestDto.dateTo}"))
+      .toD(String.format("%s?source=${%s}&target=${%s}&from=${%s}&to=${%s}",
+          exchangeRateProps.getUrl(), "exchangeProperty.requestDto.source",
+          "exchangeProperty.requestDto.target", "exchangeProperty.requestDto.dateFrom",
+          "exchangeProperty.requestDto.dateTo"))
       .unmarshal().json(JsonLibrary.Jackson)
       .to(logString);
     //@formatter:on
